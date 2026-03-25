@@ -41,12 +41,18 @@ Levels:
 
 Use the rubric in `references/scoring-rubric.md` for dimensions and thresholds. Compute and show L0–L3 pass/fail.
 
-Minimum required Scorecard schema (must be present):
+Minimum required Scorecard content (format is flexible):
 
-- **L0**: `value`, `leverage`, `unification`, `complexity`, `risk` → `PASS/FAIL` → `next_action`
-- **L1**: `verifiability`, `complexity`, `risk`, `unification` → `PASS/FAIL` → `next_action`
-- **L2**: `execution_readiness`, `dependencies`, `risk` → `PASS/FAIL` → `next_action`
-- **L3**: `verification_strength`, `risk` → `PASS/FAIL` → `next_action`
+- Show **L0–L3 PASS/FAIL** and **next_action**.
+- Include only the metrics that **drive the decision** (failed, near-threshold, or critical).
+- Provide full metrics only when the user asks or when a level fails.
+
+Default compact style:
+
+- `L0: PASS (V8 L7 U8 C5 R5) → proceed`
+- `L1: PASS (Ver7 C5 R5 U8) → plan OK`
+- `L2: PASS (ER7 Dep5 R5) → execute`
+- `L3: PASS (VS7 R5) → verify`
 
 ## System Prompt Quantization
 
@@ -194,7 +200,7 @@ Default to the shortest response that still enables action.
 
 - Keep each section to `1-3` bullets unless the user asks for detail.
 - Expand only when `complexity > 5` or `risk > 5` or `ambiguity > 5`.
-- Quantify scores, risks, and acceptance only when they change the decision.
+- Quantify scores only when they change the decision; keep the scorecard compact by default.
 - If a section is not applicable, write `None` and move on.
 
 ## Verification Protocol
