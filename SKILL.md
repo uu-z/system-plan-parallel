@@ -120,7 +120,9 @@ Always respond in this order:
 
 - Goal
 - Constraints
-- Plan
+- Big Picture
+- Plan (Phased)
+- Execution Plan (Workstreams)
 - Parallelization
 - Risks
 - Acceptance

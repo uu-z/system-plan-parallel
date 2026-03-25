@@ -22,7 +22,9 @@ Use these examples to stabilize triggering and output shape. Adapt them to the c
 
 - `Goal`: secure admin actions with the smallest viable access model.
 - `Constraints`: existing auth model, current routes, rollback requirements, no broad rewrite.
-- `Plan`: map roles, protect critical paths first, add checks at one boundary, verify with focused tests.
+- `Big Picture`: one policy boundary, one enforcement point, one audit path.
+- `Plan (Phased)`: map roles, protect critical paths first, add checks at one boundary, verify with focused tests.
+- `Execution Plan (Workstreams)`: split UI/backend only if file ownership and acceptance are independent.
 - `Parallelization`: only split UI and backend if file ownership and acceptance are independent.
 - `Risks`: hidden authorization paths, inconsistent permission checks, migration gaps.
 - `Acceptance`: unauthorized paths blocked, authorized paths preserved, regression checks pass.
@@ -37,7 +39,9 @@ Use these examples to stabilize triggering and output shape. Adapt them to the c
 
 - `Goal`: reduce duplication and inconsistent validation behavior.
 - `Constraints`: no behavior regressions, minimal new abstraction, easy rollback.
-- `Plan`: inventory duplicates, identify one canonical path, migrate highest-leverage sites first, remove dead branches.
+- `Big Picture`: one canonical validation path used across the system.
+- `Plan (Phased)`: inventory duplicates, identify one canonical path, migrate highest-leverage sites first, remove dead branches.
+- `Execution Plan (Workstreams)`: split only by non-overlapping modules with independent acceptance.
 - `Parallelization`: split only by non-overlapping modules with independent acceptance.
 - `Risks`: hidden coupling, slightly different semantics, test gaps.
 - `Acceptance`: one canonical validation path used in target modules, old duplicates removed, focused regression coverage added.
