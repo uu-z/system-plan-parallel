@@ -1,4 +1,4 @@
 interface:
   display_name: "System Plan Parallel"
-  short_description: "整体规划任务，安全拆分并行实施"
-  default_prompt: "Use $system-plan-parallel to analyze this task, produce an overall plan first, and split it into safe parallel workstreams."
+  short_description: "Think holistically, plan fully, parallelize safely"
+  default_prompt: "Use $system-plan-parallel to score this task, produce a full-system plan, and split it into safe independent workstreams."
