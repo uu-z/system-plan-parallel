@@ -48,6 +48,18 @@ Minimum required Scorecard schema (must be present):
 - **L2**: `execution_readiness`, `dependencies`, `risk` → `PASS/FAIL` → `next_action`
 - **L3**: `verification_strength`, `risk` → `PASS/FAIL` → `next_action`
 
+## System Prompt Quantization
+
+When writing or applying system prompts, convert ambiguous language into thresholds.
+
+Minimum quantized prompt rules:
+
+- Compute a Scorecard before any action.
+- Execute only if: `value >= 7`, `leverage >= 6`, `verifiability >= 7`, `unification >= 6`, `complexity <= 6`, `risk <= 6`.
+- Parallelize only if: `execution_readiness >= 7` and `dependencies <= 6`.
+- Move to the next stage only if: `verification_strength >= 7`.
+- If any threshold fails, reduce scope or change approach until it passes.
+
 ## Mode Selection
 
 Default to **No-Ask (Approval-Only)**.
