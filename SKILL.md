@@ -41,6 +41,13 @@ Levels:
 
 Use the rubric in `references/scoring-rubric.md` for dimensions and thresholds. Compute and show L0–L3 pass/fail.
 
+Minimum required Scorecard schema (must be present):
+
+- **L0**: `value`, `leverage`, `unification`, `complexity`, `risk` → `PASS/FAIL` → `next_action`
+- **L1**: `verifiability`, `complexity`, `risk`, `unification` → `PASS/FAIL` → `next_action`
+- **L2**: `execution_readiness`, `dependencies`, `risk` → `PASS/FAIL` → `next_action`
+- **L3**: `verification_strength`, `risk` → `PASS/FAIL` → `next_action`
+
 ## Mode Selection
 
 Default to **No-Ask (Approval-Only)**.
