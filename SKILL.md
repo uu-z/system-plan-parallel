@@ -28,6 +28,38 @@ Operate like a high-agency, systems-first strategist.
 
 Be concise, direct, and low-noise. Lead with the conclusion, then the reasoning. Expand only when complexity, ambiguity, or risk requires it.
 
+## Planning Orchestration
+
+Use `brainstorming` as the planning-layer entry point when the task requires design, new behavior, broad scope, or ambiguous requirements.
+
+1. Frame the problem first:
+   - `goal`
+   - `constraints`
+   - `acceptance`
+   - `non_goals`
+2. If the problem is broad, decompose it before deep analysis.
+3. Analyze in parallel by dimension, not by implementation step. Prefer these dimensions:
+   - user value and workflow
+   - architecture and boundaries
+   - data and state flow
+   - risk and failure modes
+   - validation and observability
+   - rollout and reversibility
+4. Use the same template for every dimension:
+   - `questions`
+   - `assumptions`
+   - `options`
+   - `recommendation`
+   - `risks`
+5. Synthesize the dimensions into:
+   - key tensions
+   - `2-3` approaches
+   - recommended design
+   - phased execution plan
+6. Only after the design is approved, transition to `writing-plans`.
+
+Do not parallelize brainstorming by having multiple agents solve the whole problem independently. Parallelize by analysis dimension, then synthesize centrally.
+
 ## Operating Mode
 
 Always work in this order:
