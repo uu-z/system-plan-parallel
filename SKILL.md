@@ -60,6 +60,28 @@ Use `brainstorming` as the planning-layer entry point when the task requires des
 
 Do not parallelize brainstorming by having multiple agents solve the whole problem independently. Parallelize by analysis dimension, then synthesize centrally.
 
+## Implicit Brainstorming Upgrade
+
+If the user invokes `system-plan-parallel` without explicitly invoking `brainstorming`, decide whether brainstorming-style planning is required.
+
+Automatically switch to brainstorming-style planning when any of these are true:
+
+- the task involves new features or new behavior,
+- requirements are ambiguous or incomplete,
+- multiple solution directions are plausible,
+- the scope is broad and needs decomposition,
+- architecture or UX must be designed before implementation.
+
+In that case:
+
+1. Do not jump directly into execution planning.
+2. Frame the problem first.
+3. Generate `2-3` approaches with trade-offs and a recommendation.
+4. Synthesize a recommended design.
+5. Only then transition to phased execution planning.
+
+Do not require the user to name `brainstorming` explicitly when the task clearly needs design-first analysis.
+
 ## Operating Mode
 
 Always work in this order:
