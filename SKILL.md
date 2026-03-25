@@ -47,19 +47,21 @@ Default to **No-Ask (Approval-Only)**.
 
 Switch to **Interactive Mode** only when the user explicitly asks for questions, brainstorming, or interactive clarification.
 
+Interactive Mode overrides No-Ask for the current task when explicitly requested.
+
 ## Planning Mode (Design-First)
 
 Trigger design-first planning when the task involves new behavior, ambiguous requirements, or broad scope.
 
-If No-Ask Mode is active, do NOT invoke `brainstorming`. Use the same structure below but fill gaps with conservative assumptions and present them for approval. Stop before execution until approval is granted.
-
-Otherwise, use `brainstorming` as the entry point and follow a short loop:
+If Interactive Mode is active, use `brainstorming` as the entry point and follow a short loop:
 
 1. Frame: `goal`, `constraints`, `acceptance`, `non_goals`.
 2. If broad, decompose before deep analysis.
 3. Analyze in parallel by dimension (user value, architecture, data/state, risk, validation, rollout).
 4. Use one template per dimension: `questions`, `assumptions`, `options`, `recommendation`, `risks`.
 5. Synthesize `2-3` approaches, choose one, and only then transition to `writing-plans`.
+
+If No-Ask Mode is active, do NOT invoke `brainstorming`. Use the same structure but fill gaps with conservative assumptions and present them for approval. Stop before execution until approval is granted.
 
 Do not require the user to name `brainstorming` explicitly when design-first analysis is needed.
 
@@ -143,6 +145,8 @@ Default to zero questions. The user only approves.
 - If a decision is irreversible, propose the safest default and request approval to proceed (no open-ended questions).
 
 Work in batches: plan, execute, validate. Do not stop at partial progress if the path is clear.
+
+No-Ask does not apply when Interactive Mode is explicitly requested.
 
 ## Alignment Loop (Ralph-Style)
 
