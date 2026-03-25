@@ -9,7 +9,7 @@ description: "Force Codex to operate as a high-leverage systems engineer: think 
 
 Use this skill to reduce total complexity and increase effective output by forcing a full-system pass before implementation. Optimize for fewer paths, fewer branches, fewer concepts, and a larger validated loop.
 
-For concrete prompt patterns and expected response shape, read `references/examples.md` when the user request is broad, ambiguous, or explicitly asks for overall planning or parallel execution.
+For concrete prompt patterns and expected response shape, read `references/examples.md` when the user request is broad, ambiguous, or explicitly asks for overall planning or parallel execution. Read `references/parallel-checklist.md` before approving multi-agent or multi-workstream execution.
 
 ## Operating Mode
 
