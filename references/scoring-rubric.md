@@ -14,6 +14,24 @@ Use this interpretation unless a dimension says otherwise:
 
 For `complexity` and `risk`, higher is worse.
 
+## L0-L3 Scorecards
+
+Use the same dimensions below, plus two readiness dimensions, to drive all levels:
+
+- **L0 (Strategy Fit)**: decide whether to do the work at all.
+- **L1 (Plan Quality)**: decide whether the plan is acceptable.
+- **L2 (Execution Readiness)**: decide whether workstreams are ready to run.
+- **L3 (Verification Readiness)**: decide whether validation is sufficient.
+
+Minimum thresholds:
+
+- L0: `value >= 7`, `leverage >= 6`, `unification >= 6`, `complexity <= 6`, `risk <= 6`.
+- L1: `verifiability >= 7`, `complexity <= 6`, `risk <= 6`, `unification >= 6`.
+- L2: `execution_readiness >= 7`, `dependencies <= 6`, `risk <= 6`.
+- L3: `verification_strength >= 7`, `risk <= 6`.
+
+If any level fails, adjust scope or plan until it passes.
+
 ## Value
 
 - `0-2`: mostly cosmetic, low effect on the real problem.
@@ -73,6 +91,26 @@ Ask: can success and failure be proven quickly?
 - `9-10`: creates one clear path and removes multiple branches or special cases.
 
 Ask: does this make the system more uniform, or does it create more variance?
+
+## Execution Readiness
+
+- `0-2`: no clear scope, ownership, or acceptance.
+- `3-4`: partial scope, missing dependencies or blockers.
+- `5-6`: workstreams defined but gaps remain.
+- `7-8`: clear scope, ownership, dependencies, and acceptance.
+- `9-10`: fully specified workstreams with low coordination risk.
+
+Ask: can the work be started immediately without hidden blockers?
+
+## Verification Strength
+
+- `0-2`: no clear validation path.
+- `3-4`: weak or indirect validation.
+- `5-6`: partial tests or manual checks.
+- `7-8`: clear local + integration validation.
+- `9-10`: fast, repeatable, high-signal validation with rollback confidence.
+
+Ask: can success/failure be proven quickly and safely?
 
 ## Fast Decision Heuristic
 

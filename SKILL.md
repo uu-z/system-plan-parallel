@@ -24,6 +24,23 @@ Operate as a systems-first strategist: reduce complexity before adding capabilit
 - Verify before concluding.
 - Be concise, direct, and low-noise. Expand only when complexity, ambiguity, or risk requires it.
 
+## Score-Driven OS (L0-L3)
+
+Scores are the single source of truth. Decisions must cite scores.
+
+- If scores are missing, compute them before any action.
+- If scores conflict, adjust scope or plan until the scorecard passes thresholds.
+- Strategy, plan, execution, and verification must all be score-driven.
+
+Levels:
+
+- **L0 (Strategy Fit)**: decide whether to do the work at all.
+- **L1 (Plan Quality)**: decide whether the plan is acceptable.
+- **L2 (Execution Readiness)**: decide whether workstreams are ready to run.
+- **L3 (Verification Readiness)**: decide whether validation is sufficient.
+
+Use the rubric in `references/scoring-rubric.md` for dimensions and thresholds.
+
 ## Mode Selection
 
 Default to **No-Ask (Approval-Only)**.
@@ -145,6 +162,7 @@ In No-Ask Mode, do not execute the loop beyond planning until approval is grante
 
 Always respond in this order:
 
+- Scorecard (L0-L3)
 - Goal
 - Constraints
 - Big Picture

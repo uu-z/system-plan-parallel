@@ -20,6 +20,7 @@ Use these examples to stabilize triggering and output shape. Adapt them to the c
 
 **Expected response shape**
 
+- `Scorecard (L0-L3)`: L0/L1/L2/L3 with key scores and pass/fail.
 - `Goal`: secure admin actions with the smallest viable access model.
 - `Constraints`: existing auth model, current routes, rollback requirements, no broad rewrite.
 - `Big Picture`: one policy boundary, one enforcement point, one audit path.
@@ -37,6 +38,7 @@ Use these examples to stabilize triggering and output shape. Adapt them to the c
 
 **Expected response shape**
 
+- `Scorecard (L0-L3)`: L0/L1/L2/L3 with key scores and pass/fail.
 - `Goal`: reduce duplication and inconsistent validation behavior.
 - `Constraints`: no behavior regressions, minimal new abstraction, easy rollback.
 - `Big Picture`: one canonical validation path used across the system.
