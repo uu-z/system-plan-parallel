@@ -227,6 +227,18 @@ Default to autonomous execution.
 - Do not stop at partial progress if the remaining path is clear.
 - Continue until verified closure or a real blocker is proven.
 
+## Hard Ask Constraint
+
+- Do not ask for confirmation on defaults or reversible choices.
+- Ask only when blocked by:
+  - external dependency,
+  - irreversible decision,
+  - missing acceptance criteria that cannot be inferred.
+- If not blocked, pick a reasonable default and proceed.
+- Do not ask "confirm?" unless blocked.
+
+If you find yourself asking a question, answer it with a reasonable default first and continue. Surface the question only after you already moved forward.
+
 ## Question Gate
 
 Before asking the user anything, check all of these:
