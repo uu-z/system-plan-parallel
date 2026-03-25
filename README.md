@@ -19,6 +19,12 @@ Invoke it explicitly:
 Use $system-plan-parallel to score this task, produce a full-system plan, and split it into safe independent workstreams.
 ```
 
+Short version:
+
+```text
+Use $system-plan-parallel. Keep it concise.
+```
+
 Typical triggers:
 
 - "Think holistically before coding."

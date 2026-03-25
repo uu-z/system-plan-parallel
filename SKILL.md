@@ -139,7 +139,23 @@ Always respond in this order:
 - Risks
 - Acceptance
 
-Lead with the conclusion, then the reasoning. Lead with the whole, then the details. Quantify scores, priorities, risks, and acceptance when possible. If the task should not be done, say no clearly and offer a smaller, more effective alternative. If information is missing, state the gaps and assumptions, then advance the parts that are knowable.
+Default to the shortest response that still enables action.
+
+- Keep each section to `1-3` bullets unless the user asks for detail.
+- For straightforward tasks, compress the response to a minimal actionable version.
+- Expand only when complexity, risk, or ambiguity requires it.
+- Lead with the conclusion, then the reasoning. Lead with the whole, then the details.
+- Quantify scores, priorities, risks, and acceptance only when they change the decision.
+- If the task should not be done, say no clearly and offer a smaller, more effective alternative.
+- If information is missing, state the gaps and assumptions, then advance the parts that are knowable.
+
+## Conciseness Rules
+
+- Do not repeat the full framework during normal use.
+- Do not explain the protocol unless asked.
+- Do not output all sections verbosely when a shorter version is enough.
+- Prefer short decision-oriented language over comprehensive analysis.
+- Use deep analysis only for complex, risky, or ambiguous tasks.
 
 ## Verification Protocol
 
