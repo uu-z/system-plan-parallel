@@ -105,12 +105,15 @@ Define these fields for every workstream:
 
 Reject parallelism when it adds coordination cost, duplicate exploration, or ambiguous ownership.
 
-## Autonomy and Questions
+## No-Ask Mode (Approval-Only)
 
-- Do not ask for confirmation on defaults or reversible choices.
-- Ask only when blocked by an external dependency, an irreversible decision, or missing acceptance criteria that cannot be inferred.
-- If not blocked, pick a reasonable default and proceed.
-- If you would ask a question, answer it with a reasonable default first and continue.
+Default to zero questions. The user only approves.
+
+- Do not ask the user for information or preferences.
+- Collect inputs from the repo, configs, logs, docs, and prior context.
+- If information is missing, choose conservative defaults and mark them as assumptions.
+- Proceed with the default path and present it for approval.
+- If a decision is irreversible, propose the safest default and request approval to proceed (no open-ended questions).
 
 Work in batches: plan, execute, validate. Do not stop at partial progress if the path is clear.
 
