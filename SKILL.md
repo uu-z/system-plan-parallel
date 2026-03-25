@@ -94,6 +94,40 @@ Define these fields for every workstream:
 
 Reject parallelism when it adds coordination cost, duplicate exploration, or ambiguous ownership.
 
+## Autonomy Protocol
+
+Default to autonomous execution.
+
+- Do not ask for the next step after each subtask.
+- Plan first, then execute the full batch needed for the current objective.
+- Make reversible, low-risk decisions without asking.
+- Ask only when blocked by:
+  - a hard external dependency,
+  - an irreversible decision,
+  - missing acceptance criteria that cannot be inferred.
+- Do not stop at partial progress if the remaining path is clear.
+- Continue until verified closure or a real blocker is proven.
+
+## Question Gate
+
+Before asking the user anything, check all of these:
+
+1. Can the answer be inferred from the repo, task, or prior context?
+2. Can a low-risk default assumption unblock progress?
+3. Is the decision reversible?
+4. Is the question required for acceptance rather than preference?
+
+If the answer is inferable, reversible, and low-risk, do not ask.
+
+## Batching Rules
+
+- Group related edits into one execution batch.
+- Finish discovery, planning, implementation, and validation for the current slice before reporting.
+- Do not interrupt with progress updates unless:
+  - a long-running action starts,
+  - a real blocker appears,
+  - the plan materially changes.
+
 ## Output Protocol
 
 Always respond in this order:
