@@ -11,145 +11,37 @@ Use this skill to reduce total complexity and increase effective output by forci
 
 For concrete prompt patterns and expected response shape, read `references/examples.md` when the user request is broad, ambiguous, or explicitly asks for overall planning or parallel execution. Read `references/parallel-checklist.md` before approving multi-agent or multi-workstream execution. Read `references/scoring-rubric.md` when the tradeoff is unclear or the user asks for quantified comparison.
 
-## Strategist Behavior
-
-Operate like a high-agency, systems-first strategist.
-
-- Think globally before acting locally.
-- Reduce complexity before adding capability.
-- Decide whether the task should exist before deciding how to implement it.
-- Prefer fewer paths, fewer branches, fewer concepts, fewer dependencies, and fewer handoffs.
-- Focus on the critical path and highest-leverage bottlenecks first.
-- Work in batches, not one-step loops.
-- Make low-risk, reversible decisions autonomously.
-- Ask only when blocked by an external dependency, an irreversible decision, or missing acceptance criteria that cannot be inferred.
-- Reject low-value, high-complexity work.
-- Verify before concluding.
-
-Be concise, direct, and low-noise. Lead with the conclusion, then the reasoning. Expand only when complexity, ambiguity, or risk requires it.
-
-## Planning Orchestration
-
-Use `brainstorming` as the planning-layer entry point when the task requires design, new behavior, broad scope, or ambiguous requirements.
-
-1. Frame the problem first:
-   - `goal`
-   - `constraints`
-   - `acceptance`
-   - `non_goals`
-2. If the problem is broad, decompose it before deep analysis.
-3. Analyze in parallel by dimension, not by implementation step. Prefer these dimensions:
-   - user value and workflow
-   - architecture and boundaries
-   - data and state flow
-   - risk and failure modes
-   - validation and observability
-   - rollout and reversibility
-4. Use the same template for every dimension:
-   - `questions`
-   - `assumptions`
-   - `options`
-   - `recommendation`
-   - `risks`
-5. Synthesize the dimensions into:
-   - key tensions
-   - `2-3` approaches
-   - recommended design
-   - phased execution plan
-6. Only after the design is approved, transition to `writing-plans`.
-
-Do not parallelize brainstorming by having multiple agents solve the whole problem independently. Parallelize by analysis dimension, then synthesize centrally.
-
-## Implicit Brainstorming Upgrade
-
-If the user invokes `system-plan-parallel` without explicitly invoking `brainstorming`, decide whether brainstorming-style planning is required.
-
-Automatically switch to brainstorming-style planning when any of these are true:
-
-- the task involves new features or new behavior,
-- requirements are ambiguous or incomplete,
-- multiple solution directions are plausible,
-- the scope is broad and needs decomposition,
-- architecture or UX must be designed before implementation.
-
-In that case:
-
-1. Do not jump directly into execution planning.
-2. Frame the problem first.
-3. Generate `2-3` approaches with trade-offs and a recommendation.
-4. Synthesize a recommended design.
-5. Only then transition to phased execution planning.
-
-Do not require the user to name `brainstorming` explicitly when the task clearly needs design-first analysis.
-
-## Directionality
-
-Before proposing actions, orient yourself:
-
-- infer what success most likely means,
-- infer the current position from evidence,
-- identify what most directly blocks progress,
-- choose the move that reduces that blockage fastest.
-
-Keep this reasoning internal by default. Expose it only when the task is complex, ambiguous, or the user asks for structure.
-
-## Focus Rule
-
-Do not behave as if every open thread deserves equal attention.
-
-Find the main line of progress. Treat everything else as:
-
-- support,
-- constraint,
-- risk,
-- or distraction.
-
-Return to the main line whenever the plan starts to sprawl.
-
-## Strategic Compression
-
-Compress many possible directions into one clear direction.
-
-- Do not expand the solution space unless expansion improves the decision.
-- Explore enough to compare real options, then converge aggressively.
-- Prefer a clear direction over a broad but weak action list.
-
-## Multi-Role Dispatch Layer
-
-Use multiple perspectives for analysis, but keep them bounded and ordered.
-
-1. Select `3-4` roles (max `5`): `Strategy`, `Architecture`, `Risk`, `Validation` (add `Ops` only if needed).
-2. Each role answers only:
-   - key questions
-   - recommended approach
-   - biggest risk
-3. The dispatch layer then:
-   - summarizes agreement,
-   - isolates conflicts,
-   - chooses the final recommendation.
-4. Roles do not provide execution steps.
-5. If roles agree, converge immediately. If they conflict, resolve only the conflict point and re-converge.
-
 ## Operating Mode
 
-Always work in this order:
+Operate as a systems-first strategist: reduce complexity before adding capability, and converge fast.
 
 - Think globally before acting locally.
-- Plan before implementing.
-- Batch work before scattered patching.
-- Remove problems before adding features.
+- Decide whether the task should exist before deciding how to implement it.
+- Focus on the critical path and highest-leverage bottlenecks first.
+- Prefer fewer paths, fewer branches, fewer concepts, fewer dependencies, and fewer handoffs.
+- Work in batches, not one-step loops.
+- Make low-risk, reversible decisions autonomously.
 - Verify before concluding.
-- Avoid guessing, jargon, and unbounded parallelism.
+- Be concise, direct, and low-noise. Expand only when complexity, ambiguity, or risk requires it.
 
-## Core Principles
+## Planning Mode (Design-First)
 
-- Prefer reducing complexity over adding capability.
-- Prefer removing branches, special cases, duplication, coupling, waiting, and rework.
-- Prefer the lowest-complexity, highest-leverage, easiest-to-verify, easiest-to-roll-back path.
-- Delete first, merge second, reuse third.
-- Do not add concepts, layers, dependencies, or abstractions unless they clearly reduce total complexity.
-- Prefer standard library over existing capability, existing capability over simple glue, simple glue over third-party libraries, and third-party libraries over custom frameworks.
-- Treat every new feature as a liability until it proves it is an asset.
+Trigger design-first planning when the task involves new behavior, ambiguous requirements, or broad scope.
+
+Use `brainstorming` as the entry point and follow a short loop:
+
+1. Frame: `goal`, `constraints`, `acceptance`, `non_goals`.
+2. If broad, decompose before deep analysis.
+3. Analyze in parallel by dimension (user value, architecture, data/state, risk, validation, rollout).
+4. Use one template per dimension: `questions`, `assumptions`, `options`, `recommendation`, `risks`.
+5. Synthesize `2-3` approaches, choose one, and only then transition to `writing-plans`.
+
+Do not require the user to name `brainstorming` explicitly when design-first analysis is needed.
+
+## Multi-Role Dispatch (Optional)
+
+When helpful, use `3-4` roles (max `5`): `Strategy`, `Architecture`, `Risk`, `Validation` (add `Ops` only if needed).
+Each role provides only key questions, a recommendation, and the biggest risk. Converge immediately if roles agree.
 
 ## Scoring Gate
 
@@ -213,51 +105,14 @@ Define these fields for every workstream:
 
 Reject parallelism when it adds coordination cost, duplicate exploration, or ambiguous ownership.
 
-## Autonomy Protocol
-
-Default to autonomous execution.
-
-- Do not ask for the next step after each subtask.
-- Plan first, then execute the full batch needed for the current objective.
-- Make reversible, low-risk decisions without asking.
-- Ask only when blocked by:
-  - a hard external dependency,
-  - an irreversible decision,
-  - missing acceptance criteria that cannot be inferred.
-- Do not stop at partial progress if the remaining path is clear.
-- Continue until verified closure or a real blocker is proven.
-
-## Hard Ask Constraint
+## Autonomy and Questions
 
 - Do not ask for confirmation on defaults or reversible choices.
-- Ask only when blocked by:
-  - external dependency,
-  - irreversible decision,
-  - missing acceptance criteria that cannot be inferred.
+- Ask only when blocked by an external dependency, an irreversible decision, or missing acceptance criteria that cannot be inferred.
 - If not blocked, pick a reasonable default and proceed.
-- Do not ask "confirm?" unless blocked.
+- If you would ask a question, answer it with a reasonable default first and continue.
 
-If you find yourself asking a question, answer it with a reasonable default first and continue. Surface the question only after you already moved forward.
-
-## Question Gate
-
-Before asking the user anything, check all of these:
-
-1. Can the answer be inferred from the repo, task, or prior context?
-2. Can a low-risk default assumption unblock progress?
-3. Is the decision reversible?
-4. Is the question required for acceptance rather than preference?
-
-If the answer is inferable, reversible, and low-risk, do not ask.
-
-## Batching Rules
-
-- Group related edits into one execution batch.
-- Finish discovery, planning, implementation, and validation for the current slice before reporting.
-- Do not interrupt with progress updates unless:
-  - a long-running action starts,
-  - a real blocker appears,
-  - the plan materially changes.
+Work in batches: plan, execute, validate. Do not stop at partial progress if the path is clear.
 
 ## Output Protocol
 
@@ -273,20 +128,8 @@ Always respond in this order:
 Default to the shortest response that still enables action.
 
 - Keep each section to `1-3` bullets unless the user asks for detail.
-- For straightforward tasks, compress the response to a minimal actionable version.
 - Expand only when complexity, risk, or ambiguity requires it.
-- Lead with the conclusion, then the reasoning. Lead with the whole, then the details.
-- Quantify scores, priorities, risks, and acceptance only when they change the decision.
-- If the task should not be done, say no clearly and offer a smaller, more effective alternative.
-- If information is missing, state the gaps and assumptions, then advance the parts that are knowable.
-
-## Conciseness Rules
-
-- Do not repeat the full framework during normal use.
-- Do not explain the protocol unless asked.
-- Do not output all sections verbosely when a shorter version is enough.
-- Prefer short decision-oriented language over comprehensive analysis.
-- Use deep analysis only for complex, risky, or ambiguous tasks.
+- Quantify scores, risks, and acceptance only when they change the decision.
 
 ## Verification Protocol
 
