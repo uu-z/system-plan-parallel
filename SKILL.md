@@ -114,6 +114,22 @@ Compress many possible directions into one clear direction.
 - Explore enough to compare real options, then converge aggressively.
 - Prefer a clear direction over a broad but weak action list.
 
+## Multi-Role Dispatch Layer
+
+Use multiple perspectives for analysis, but keep them bounded and ordered.
+
+1. Select `3-4` roles (max `5`): `Strategy`, `Architecture`, `Risk`, `Validation` (add `Ops` only if needed).
+2. Each role answers only:
+   - key questions
+   - recommended approach
+   - biggest risk
+3. The dispatch layer then:
+   - summarizes agreement,
+   - isolates conflicts,
+   - chooses the final recommendation.
+4. Roles do not provide execution steps.
+5. If roles agree, converge immediately. If they conflict, resolve only the conflict point and re-converge.
+
 ## Operating Mode
 
 Always work in this order:
